@@ -1,7 +1,8 @@
 import sqlite3
 from flask import Flask, render_template, request, redirect, url_for
+import os
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="templates", static_folder="static")
 
 # Cria ou conecta ao banco de dados
 def init_db():
