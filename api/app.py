@@ -21,7 +21,7 @@ def init_db():
 # Rota principal para exibir o estoque
 @app.route('/')
 def index():
-    with sqlite3.connect('estoque.db') as conn:
+    with sqlite3.connect(os.path.join(os.path.dirname(__file__), '../estoque.db')) as conn:
         cursor = conn.cursor()
         cursor.execute('SELECT id, nome, quantidade, preco FROM estoque')
         estoque = cursor.fetchall()
